@@ -14,18 +14,19 @@ Bicicleta.add = function (aBici) {
 }
 
 Bicicleta.findById = function (aBiciId) {
-    let aBici = Bicicleta.allBicis.find(x => x.id = aBiciId)
+    var aBici = Bicicleta.allBicis.find((x) => x.id == aBiciId)
     if (aBici) {
+        console.log(aBici);
         return aBici;
     } else {
-        throw new Error('no existe una bicicleta con el id ingresado')
+        throw new Error('no existe una bicicleta con el id ingresado');
     }
 }
 
 Bicicleta.removeById = function (aBiciId) {
     Bicicleta.findById(aBiciId);
     for (let i = 0; i < Bicicleta.allBicis.length; i++) {
-        if (Bicicleta.allBicis[i].id == aBiciId) {
+        if (Bicicleta.allBicis[i].id === aBiciId) {
             Bicicleta.allBicis.splice(i, 1);
             break;
         }
